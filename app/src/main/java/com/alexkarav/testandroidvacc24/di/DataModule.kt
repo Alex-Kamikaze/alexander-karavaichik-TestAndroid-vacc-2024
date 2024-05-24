@@ -34,6 +34,7 @@ object DataModule {
     @Singleton
     fun provideStoreApi(): ShopListApi {
         return Retrofit.Builder()
+            .baseUrl(ShopListApi.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ShopListApi::class.java)

@@ -20,6 +20,6 @@ interface UserDao {
     suspend fun deleteUser(user: User)
 
     @Query("SELECT * from user WHERE userId = :id")
-    suspend fun getUserById(id: Int)
+    suspend fun getUserById(id: Int): User
 
 }

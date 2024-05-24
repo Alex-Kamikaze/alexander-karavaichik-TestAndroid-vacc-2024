@@ -1,5 +1,6 @@
 package com.alexkarav.testandroidvacc24.domain.repo
 
+import android.content.Context
 import com.alexkarav.testandroidvacc24.data.local.datastore.DataStoreManager
 import com.alexkarav.testandroidvacc24.data.local.db.AppDatabase
 import com.alexkarav.testandroidvacc24.data.remote.ShopListApi
@@ -17,15 +18,14 @@ class UserRepositoryImpl @Inject constructor(private val appDatabase: AppDatabas
 
     override suspend fun loginUser(userLoginInfo: UserLoginInfo): Result<Boolean> {
         try {
-            shopListApi.loginUser(
+            val token = shopListApi.loginUser(
                 userLoginInfoRequest = UserLoginInfoRequest(password = userLoginInfo.userPassword, username = userLoginInfo.userLogin)
             )
+            println(token.token)
+            return Result.success(true)
         }
         catch (ex: Exception) {
             return Result.failure(ex)
         }
-        return Result.success(true)
     }
-
-
 }

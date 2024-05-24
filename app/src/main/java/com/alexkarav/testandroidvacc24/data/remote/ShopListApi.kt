@@ -13,4 +13,8 @@ interface ShopListApi {
 
     @POST("/auth/login")
     suspend fun loginUser(@Body userLoginInfoRequest: UserLoginInfoRequest): UserLoginResponse
+
+    companion object {
+        const val BASE_URL = "https://fakestoreapi.com"
+    }
 }

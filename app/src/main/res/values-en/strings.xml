@@ -8,5 +8,4 @@
     <string name="auth_button_text">Authorize</string>
     <string name="registration_hint_text">Don\'t have an account yet?</string>
     <string name="registration_button_text">Register</string>
-    <string name="registration_button_text">R</string>
 </resources>
