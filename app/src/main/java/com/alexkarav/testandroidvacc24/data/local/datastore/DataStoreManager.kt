@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.map
 
 class DataStoreManager(private val context: Context) {
 
-    val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
+    private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
     suspend fun saveUserInformation(username: String, password: String) {
         context.dataStore.edit { settings ->
@@ -33,8 +33,21 @@ class DataStoreManager(private val context: Context) {
         }
     }
 
+    suspend fun setAuthorizationToken(token: String) {
+        context.dataStore.edit {settings ->
+            settings[authorizationTokenKey] = token
+        }
+    }
+
+    fun retrieveAuthorizationToken(): Flow<String> {
+        return context.dataStore.data.map { settings ->
+            settings[authorizationTokenKey] ?: ""
+        }
+    }
+
     companion object {
         val usernameKey = stringPreferencesKey("USERNAME")
         val passwordKey = stringPreferencesKey("PASSWORD")
+        val authorizationTokenKey = stringPreferencesKey("AUTH_TOKEN")
     }
 }
