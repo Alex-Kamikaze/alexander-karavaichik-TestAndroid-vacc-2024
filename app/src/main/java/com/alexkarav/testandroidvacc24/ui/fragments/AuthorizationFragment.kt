@@ -41,7 +41,7 @@ class AuthorizationFragment : Fragment() {
 
         lifecycleScope.launch {
             viewModel.userAuthorized.collectLatest { authorized ->
-                if(authorized != true) {
+                if(authorized == false) {
                     Toast.makeText(requireContext(), "Произошла ошибка при авторизации", Toast.LENGTH_LONG).show()
                 }
                 else {
