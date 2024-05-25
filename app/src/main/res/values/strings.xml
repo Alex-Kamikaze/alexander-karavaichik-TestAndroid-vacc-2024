@@ -9,4 +9,6 @@
     <string name="auth_button_text">Авторизоваться</string>
     <string name="registration_hint_text">У вас еще нет аккаунта?</string>
     <string name="registration_button_text">Зарегистрироваться</string>
+    <string name="shopping_cart_button_text">Кнопка, которая переносит вас на страницу с вашими покупками</string>
+    <string name="product_image_content_description">Изображение товара</string>
 </resources>

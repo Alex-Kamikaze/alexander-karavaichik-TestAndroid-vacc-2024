@@ -1,4 +1,4 @@
-package com.alexkarav.testandroidvacc24.presentation
+package com.alexkarav.testandroidvacc24.presentation.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AuthorizationViewModel @Inject constructor(private val userRepo: UserRepositoryImpl): ViewModel() {
-    private val _userAuthorized = MutableStateFlow(false)
+    private val _userAuthorized = MutableStateFlow<Boolean?>(null)
     val userAuthorized = _userAuthorized.asStateFlow()
 
     fun authorizeUser(userLoginInfo: UserLoginInfo) {

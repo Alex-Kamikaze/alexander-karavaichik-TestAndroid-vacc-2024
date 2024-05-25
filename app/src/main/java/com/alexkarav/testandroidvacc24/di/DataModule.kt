@@ -5,6 +5,7 @@ import androidx.room.Room
 import com.alexkarav.testandroidvacc24.data.local.datastore.DataStoreManager
 import com.alexkarav.testandroidvacc24.data.local.db.AppDatabase
 import com.alexkarav.testandroidvacc24.data.remote.ShopListApi
+import com.alexkarav.testandroidvacc24.domain.repo.ProductRepositoryImpl
 import com.alexkarav.testandroidvacc24.domain.repo.UserRepositoryImpl
 import dagger.Module
 import dagger.Provides
@@ -44,5 +45,11 @@ object DataModule {
     @Singleton
     fun provideUserRepository(dataStoreManager: DataStoreManager, appDatabase: AppDatabase, api: ShopListApi): UserRepositoryImpl {
         return UserRepositoryImpl(dataStoreManager = dataStoreManager, appDatabase = appDatabase, shopListApi = api)
+    }
+
+    @Provides
+    @Singleton
+    fun provideProductRepository(shopListApi: ShopListApi): ProductRepositoryImpl {
+        return ProductRepositoryImpl(shopListApi)
     }
 }

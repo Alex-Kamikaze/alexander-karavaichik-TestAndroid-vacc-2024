@@ -1,7 +1,6 @@
-package com.alexkarav.testandroidvacc24.data.remote.models
+package com.alexkarav.testandroidvacc24.data.remote.models.user
 
 
-import com.alexkarav.testandroidvacc24.data.remote.models.Geolocation
 import com.google.gson.annotations.SerializedName
 
 data class Address(

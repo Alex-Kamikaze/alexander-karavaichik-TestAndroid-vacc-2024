@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -71,4 +72,6 @@ dependencies {
     implementation(libs.converter.gson)
 
     implementation(libs.androidx.datastore.preferences)
+
+    implementation("io.coil-kt:coil:2.6.0")
 }

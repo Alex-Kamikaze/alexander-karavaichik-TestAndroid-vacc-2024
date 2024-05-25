@@ -5,6 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.navigation.Navigation
 import com.alexkarav.testandroidvacc24.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,5 +25,9 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return Navigation.findNavController(binding.main).navigateUp()
     }
 }
