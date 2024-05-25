@@ -17,9 +17,11 @@ class ProductDetailsViewModel @Inject constructor(private val productRepository:
     val productDetails = _productDetails.asStateFlow()
 
     fun loadProductDetails(id: Int) {
+        println("loading product details")
         viewModelScope.launch {
             val result = productRepository.getProductFromRemoteById(id)
             if(result.isSuccess) {
+                println("details loaded successfully")
                 _productDetails.value = RemoteProductListToListItem.singleRemoteItemIntoProductModel(result.getOrNull()!!)
             }
             else {

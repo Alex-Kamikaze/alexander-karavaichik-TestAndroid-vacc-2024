@@ -1,14 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.fragments.ProductDetailsFragment">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/addToCartButton">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/productImage"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/productName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/productImage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="Плейсхолдер"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:id="@+id/productRatingIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/baseline_star_24"
+                app:layout_constraintTop_toBottomOf="@id/productName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/productRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4.7"
+                app:layout_constraintTop_toTopOf="@id/productRatingIcon"
+                app:layout_constraintStart_toEndOf="@id/productRatingIcon"
+                app:layout_constraintBottom_toBottomOf="@id/productRatingIcon"
+                android:textSize="24sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/productDescription"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac metus erat. Integer velit mauris, aliquet venenatis sagittis auctor, pellentesque non nunc. Maecenas vestibulum maximus metus at sagittis. Etiam efficitur diam in velit ullamcorper porta. Nulla maximus maximus sapien vitae scelerisque. Phasellus mollis sapien sit amet libero ornare tincidunt. Etiam nec lorem aliquam, malesuada ex nec, tristique arcu. Praesent accumsan venenatis blandit. Sed pulvinar commodo velit a molestie. Pellentesque viverra efficitur arcu, laoreet rhoncus quam facilisis mattis. Curabitur nec nibh felis. Nam ornare pharetra porttitor. Suspendisse imperdiet ut tellus eu varius. Cras pharetra urna id odio mollis molestie."
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/productRatingIcon"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="20dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/productPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5000р."
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/addToCartButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/addToCartButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Добавить в корзину"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:cornerRadius="8dp" />
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
